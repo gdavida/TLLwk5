@@ -8,7 +8,7 @@
 
 require_relative  "../test_helper"
 
-class AssignedAgeGroupTest < Minitest::Test
+class SkillTest < Minitest::Test
   
   def test_name_present_is_valid
   	s = Skill.new(name: "", description: "This is the child's ability to learn and solve problems. For example, this includes a two-month-old baby learning to explore the environment with hands or eyes or a five-year-old learning how to do simple math problems.")
