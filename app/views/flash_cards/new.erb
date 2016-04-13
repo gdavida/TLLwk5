@@ -1,0 +1,27 @@
+<h1>New Flash Card</h1>
+
+<% if @flash_card.errors.any? %>
+  <div>
+    <h2>Errors:</h2>
+    <ul>
+      <% @flash_card.errors.full_messages.each do |e| %>
+        <li><%= e %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<form action="/flash-cards" method="post">
+  <div>
+    Question:
+    <input type="textarea" name="question" value="<%= @flash_card.question %>">
+  </div>
+  <div>
+    Answer:
+    <input type="textarea" name="answer" value="<%= @flash_card.answer %>">
+  </div>
+  <div>
+    <input type="submit" value="Make a new Flash Card">
+  </div>
+
+</form>

@@ -1,0 +1,9 @@
+<h1>All Flash Cards</h1>
+
+<ol>
+  <% @flash_cards.each do |f| %>
+    <li><a href="/flash-cards/<%= f.id %>" ><%= f.question %></a></li>
+  <% end %>
+</ol>
+
+<p><a href="/flash-cards/new">New Flash Cards</a></p>

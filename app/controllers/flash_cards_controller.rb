@@ -8,9 +8,9 @@ end
 
 # create
 post "/flash-cards/?" do
-  @flash_card = FlashCards.new(params)
+  @flash_card = FlashCard.new(params)
 
-  if FlashCard.save
+  if @flash_card.save
     redirect to("/flash-cards")
   else
     erb :"flash_cards/new"
