@@ -1,10 +1,10 @@
-# ------- ASSIGNED AGE GROUPS ------------
+# ------- SKILLS ------------
 # ________________________________________
+# + name (string)
+# + description (text)
 
-	# + age
-
-  # has_many								:boxes
   # has_and_belongs_to_many :toys
+  # has_and_belongs_to_many :boxes
 # ________________________________________
 
 
@@ -14,31 +14,31 @@
 # ________________________________________
 
 #-- INDEX --------
-# my "index" page for this model (@assigned_age_groups) will get and return a list of all(AssignedAgeGroup.all) of the items in that table
+# my "index" page for this model (@skillss) will get and return a list of all(Skill.all) of the items in that table
 # (my @ variable is plural here because I am referring to ALL/multiple records)
 # I will code exactly what that looks like, what attributes to include and the format, etc, in the erb file
 #
-get "assigned_age_groups/?" do
-	@assigned_age_groups = AssignedAgeGroup.all
-	erb :"assigned_age_groups/index"
+get "skills/?" do
+	@skills = Skill.all
+	erb :"skills/index"
 end
 
 #-- NEW ----------
-# my "new" page will be my way of getting a form to fill out for a new item into the AssignedAgeGroup table
+# my "new" page will be my way of getting a form to fill out for a new item into the Skill table
 # I will make form in the erb file, which will evantually, through "create" post that info to the db
 #
-get "/assigned_age_groups/new/?" do
-	@assigned_age_group = AssignedAgeGroup.new
-	erb :"/assigned_age_groups/new"
+get "/skills/new/?" do
+	@skill = Skill.new
+	erb :"/skills/new"
 end
 
 #-- SHOW ---------
 # When I want to look futher at a specific record I will look it up by its primary key (id")
 # In my erb file I format what information about each record I want to show
 #
-get "/assigned_age_groups/:id/?" do
-	@assigned_age_group = AssignedAgeGroup.find_by_id(params['id'])
-	erb :"assigned_age_groups/show"
+get "/skills/:id/?" do
+	@skill = Skill.find_by_id(params['id'])
+	erb :"skills/show"
 end
 
 
@@ -47,9 +47,9 @@ end
 # In my erb file I will have an editable form, which will eventually, through "update" post that info to the db
 # (probably will look exactly like NEW only with info already in the form ready to be used or edited as needed)
 #
-get "/assigned_age_groups/:id/edit/?" do
-	@assigned_age_group = AssignedAgeGroup.find_by_id(params['id'])
-	erb :"assigned_age_groups/edit"
+get "/skills/:id/edit/?" do
+	@skill = Skill.find_by_id(params['id'])
+	erb :"skills/edit"
 end
 
 # ________________________________________
@@ -65,13 +65,13 @@ end
 # If the info I entered is good(ie it validates and therefor saves) I will be redirected to the INDEX where I will see the updated list of all items
 # Else I will stay on the new page, which in the erb file I will make sure it shows which errors showed up, so which validations must be met in order for it to save
 #
-post "/assigned_age_groups/?" do
-	@assigned_age_group = AssignedAgeGroup.new(params)
+post "/skills/?" do
+	@skill = Skill.new(params)
 
-	if @assigned_age_group.save
-		redirect to ("/assigned_age_groups")
+	if @skill.save
+		redirect to ("/skills")
 	else
-		erb :"assigned_age_groups/new"
+		erb :"skills/new"
 	end
 end
 
@@ -84,13 +84,13 @@ end
 #     in the edit page under the form action include:
 #            <input type="hidden" name="_method" value="patch">
 
-patch "/assigned_age_groups/:id/?" do
-	@assigned_age_group = AssignedAgeGroup.find_by_id(params['id'])
+patch "/skills/:id/?" do
+	@skill = Skill.find_by_id(params['id'])
 
-	if @assigned_age_groups.update_attributes(age: params['age'])
-		redirect to("/assigned_age_groups/#{@assigned_age_group.id}")
+	if @skills.update_attributes(name: params['name'], description: params['description'])
+		redirect to("/skills/#{@skill.id}")
 	else
-		erb :"assigned_age_groups/edit"
+		erb :"skills/edit"
 	end
 end
 # ________________________________________
@@ -101,9 +101,9 @@ end
 #
 #  find record by id and destroy it then redirect to the INDEX list of all items, which reflects the deletion
 #
-	delete "/assigned_age_groups/:id/?" do
-		@assigned_age_group = AssignedAgeGroup.find_by_id(params['id'])
-		@assigned_age_group.destroy
-		redirect to("/assigned_age_groups")
+	delete "/skills/:id/?" do
+		@skill = Skill.find_by_id(params['id'])
+		@skill.destroy
+		redirect to("/skills")
 	end
 # ________________________________________
