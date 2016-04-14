@@ -53,7 +53,7 @@ end
 #-- EDIT ---------
 # When I want to edit the details of a specific record, as referenced by its primary ket
 # In my erb file I will have an editable form, which will eventually, through "update" post that info to the db
-# (probably will look exactly like NEW only with info already in the form ready to be used or edited as needed)
+# (probably will look exactly like NEW only with info 1already in the form ready to be used or edited as needed)
 #
 get "/boxes/:id/edit/?" do
 	@box = Box.find_by_id(params['id'])
