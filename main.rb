@@ -6,6 +6,7 @@ require "sinatra/reloader"
 Dir[File.dirname(__FILE__) + "/app/*/*.rb"].each { |file| require file}
 
 set :views, Proc.new {File.join(root, "app/views/")}
+
 enable :method_override
 
 get "/" do

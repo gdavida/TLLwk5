@@ -101,7 +101,18 @@ end
 patch "/toys/:id/?" do
   @toy = Toy.find_by_id(params['id'])
 
-  if @toys.update_attributes(name: params['name'], description: params['description'])
+  if @toy.update_attributes(name: params['name'],
+                            brand: params['brand'],
+                            mfg_website: params['mfg_website'],
+                            quantity_have: params['quantity_have'],
+                            quantity_wanted: params['quantity_wanted'],
+                            upc: params['upc'],
+                            mfg_suggested_age_range: params['mfg_suggested_age_range'],
+                            pieces: params['pieces'],
+                            extended_play_idea: params['extended_play_idea'],
+                            store_purchased_from: params['store_purchased_from'],
+                            purchase_price: params['purchase_price'],
+                            country_of_origin: params['country_of_origin'])
     redirect to("/toys/#{@toy.id}")
   else
     erb :"toys/edit"

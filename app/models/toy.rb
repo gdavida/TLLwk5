@@ -25,7 +25,7 @@ class Toy < ActiveRecord::Base
   validates :mfg_website, presence: true
   validates :quantity_wanted, presence: true
   validates :quantity_have, presence: true
-  validates :upc, presence: true, uniqueness: true
+  validates :upc, presence: true
   validates :mfg_suggested_age_range, presence: true
   validates :pieces, presence: true
   validates :extended_play_idea, presence: true
