@@ -32,7 +32,7 @@
 # (my @ variable is plural here because I am referring to ALL/multiple records)
 # I will code exactly what that looks like, what attributes to include and the format, etc, in the erb file
 #
-get "toys/?" do
+get "/toys/?" do
   @toys = Toy.all
   erb :"toys/index"
 end

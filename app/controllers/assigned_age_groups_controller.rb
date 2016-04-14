@@ -18,7 +18,7 @@
 # (my @ variable is plural here because I am referring to ALL/multiple records)
 # I will code exactly what that looks like, what attributes to include and the format, etc, in the erb file
 #
-get "assigned_age_groups/?" do
+get "/assigned_age_groups/?" do
 	@assigned_age_groups = AssignedAgeGroup.all
 	erb :"assigned_age_groups/index"
 end
