@@ -7,6 +7,7 @@
 
 class Skill < ActiveRecord::Base
 	has_and_belongs_to_many :boxes
+	has_and_belongs_to_many :toys
 
 	validates :name, presence: true, uniqueness: true
 	validates :description, presence: true, uniqueness: true

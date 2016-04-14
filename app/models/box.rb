@@ -13,8 +13,9 @@
 
 class Box < ActiveRecord::Base
 
-	belongs_to :assigned_age_groups
+	has_and_belongs_to_many :assigned_age_groups
 	has_and_belongs_to_many :skills
+	has_and_belongs_to_many :toys
 
 
 	validates :name, presence:true

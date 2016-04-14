@@ -11,13 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 4) do
+ActiveRecord::Schema.define(version: 9) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "assigned_age_groups", force: :cascade do |t|
     t.string "age"
+  end
+
+  create_table "assigned_age_groups_boxes", id: false, force: :cascade do |t|
+    t.integer "assigned_age_group_id", null: false
+    t.integer "box_id",                null: false
+  end
+
+  create_table "assigned_age_groups_skills", id: false, force: :cascade do |t|
+    t.integer "assigned_age_group_id", null: false
+    t.integer "skill_id",              null: false
   end
 
   create_table "boxes", force: :cascade do |t|
@@ -29,9 +39,24 @@ ActiveRecord::Schema.define(version: 4) do
     t.boolean "checked_out"
   end
 
+  create_table "boxes_skills", id: false, force: :cascade do |t|
+    t.integer "box_id",   null: false
+    t.integer "skill_id", null: false
+  end
+
+  create_table "boxes_toys", id: false, force: :cascade do |t|
+    t.integer "box_id", null: false
+    t.integer "toy_id", null: false
+  end
+
   create_table "skills", force: :cascade do |t|
     t.string "name"
     t.text   "description"
+  end
+
+  create_table "skills_toys", id: false, force: :cascade do |t|
+    t.integer "skill_id", null: false
+    t.integer "toy_id",   null: false
   end
 
   create_table "toys", force: :cascade do |t|

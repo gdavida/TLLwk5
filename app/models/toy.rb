@@ -25,14 +25,15 @@ class Toy < ActiveRecord::Base
   validates :mfg_website, presence: true
   validates :quantity_wanted, presence: true
   validates :quantity_have, presence: true
-  validates :upc, presence: true, unique: true
+  validates :upc, presence: true, uniqueness: true
   validates :mfg_suggested_age_range, presence: true
   validates :pieces, presence: true
-  validates :extended_play_idea
-  validates :store_purchased_from
+  validates :extended_play_idea, presence: true
+  validates :store_purchased_from, presence: true
   validates :purchase_price, presence: true
   validates :country_of_origin, presence: true
-  belongs_to :box
-  # has_and_belongs_to_many :skill
-  # has_and_belongs_to_many :assigned_age_group
+
+  has_and_belongs_to_many :boxes
+  has_and_belongs_to_many :skills
+  has_and_belongs_to_many :assigned_age_groups
 end
