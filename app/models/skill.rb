@@ -6,6 +6,8 @@
 
 
 class Skill < ActiveRecord::Base
+	has_and_belongs_to_many :boxes
+
 	validates :name, presence: true, uniqueness: true
 	validates :description, presence: true, uniqueness: true
 end

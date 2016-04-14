@@ -8,13 +8,14 @@
 #
 # + belongs_to assigned_age_groups
 # + has_many toys
-# + has_many_and_belongs_to toys
-# + has_many_and_belongs_to skills
+# + has_and_belongs_to_many toys
 
 
 class Box < ActiveRecord::Base
 
 	belongs_to :assigned_age_groups
+	has_and_belongs_to_many :skills
+
 
 	validates :name, presence:true
 	# validates :label
