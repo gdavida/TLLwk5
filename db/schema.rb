@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 3) do
+ActiveRecord::Schema.define(version: 4) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,23 @@ ActiveRecord::Schema.define(version: 3) do
   create_table "skills", force: :cascade do |t|
     t.string "name"
     t.text   "description"
+  end
+
+  create_table "toys", force: :cascade do |t|
+    t.string  "name"
+    t.string  "brand"
+    t.string  "mfg_website"
+    t.integer "quantity_wanted"
+    t.integer "quantity_have"
+    t.string  "upc"
+    t.string  "mfg_suggested_age_range"
+    t.integer "pieces"
+    t.text    "extended_play_idea"
+    t.string  "store_purchased_from"
+    t.string  "purchase_price"
+    t.string  "country_of_origin"
+    t.boolean "batteries_required"
+    t.integer "box_id"
   end
 
 end

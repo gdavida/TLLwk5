@@ -3,7 +3,7 @@ require_relative  "../test_helper"
 class AssignedAgeGroupTest < Minitest::Test
   
   def test_valid_with_age
-    a = AssignedAgeGroup.new(age: "0-3 months")
+    a = AssignedAgeGroup.new(age: "1 - 99 years")
     assert(a.valid?, "should be valid with a present age entered")
   end
   
