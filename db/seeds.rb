@@ -37,3 +37,8 @@ Box.create!(name:"B1", assigned_age_group_id: 2, label: false, location: "Main",
 Box.create!(name:"C1", assigned_age_group_id: 3, label: true, location: "Main", cleaned: true, checked_out: true)
 Box.create!(name:"D1", assigned_age_group_id: 4, label: true, location: "Main", cleaned: true, checked_out: true)
 Box.create!(name:"E1", assigned_age_group_id: 5, label: true, location: "Main", cleaned: false, checked_out: false)
+
+
+Toy.create!(name:"Flexi-loops", brand:"Oball", mfg_website:"http://www.kidsii.com/brands/oball", quantity_wanted:2, quantity_have:1, upc: "07445181511", mfg_suggested_age_range: "0+", pieces: 24, extended_play_idea: "Here's a fun idea...", store_purchased_from: "Target",  purchase_price: "599", country_of_origin: "China", batteries_required: false)
+Toy.create!(name:"Funthings", brand:"Mattel",mfg_website:"http://www.mattel.com",quantity_wanted:1,quantity_have:1,upc: "02444121511",mfg_suggested_age_range: "2-4",pieces: 3, extended_play_idea: "Do this...",store_purchased_from: "Play Store", purchase_price: "100",country_of_origin: "USA",batteries_required: true)
+Toy.create!(name:"Duplo Castle", brand:"Lego",mfg_website:"http://www.lego.com",quantity_wanted:2,quantity_have:1,upc: "02444121231",mfg_suggested_age_range: "4-5",pieces: 24, extended_play_idea: "Build a castle and play...",store_purchased_from: "logostore.com", purchase_price: "2499",country_of_origin: "Denmark",batteries_required: false)
