@@ -1,0 +1,93 @@
+
+  <!-- validates :name, presence: true
+  validates :brand, presence: true
+  validates :mfg_website, presence: true
+  validates :quantity_wanted, presence: true
+  validates :quantity_have, presence: true
+  validates :upc, presence: true, uniqueness: true
+  validates :mfg_suggested_age_range, presence: true
+  validates :pieces, presence: true
+  validates :extended_play_idea, presence: true
+  validates :store_purchased_from, presence: true
+  validates :purchase_price, presence: true
+  validates :country_of_origin, presence: true -->
+
+  <div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<h2><%= @toy.name %></h2>
+			<div class="row">
+				<a href="edit.erb">
+					<h5>Edit Record</h5>
+				</a>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="row">
+				<a href="/edit.erb">
+					<h5>Add New</h5>
+				</a>
+			</div>
+			<div class="row">
+				<a href="">
+					<h5>Assign to Box</h5>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="row" id="toyViewShow">
+		<h1><%= @toy.name %></h1>
+			
+<form action="/toys/<%= @toy.id %>" method="post">
+  <div class='form-group'>
+    Name:
+    <input type="text" name="name" class="form-control" value="<%= @toy.name %>">
+  </div>
+  <div class="form-group">
+    Have:
+    <input type="text" name="quantity_have" class="form-control" value="<%= @toy.quantity_have %>">
+  </div>
+  <div class="form-group">
+    Want:
+    <input type="text" name="quantity_wanted" class="form-control" value="<%= @toy.quantity_wanted %>">
+  </div>
+  <div class="form-group">
+    Brand:
+    <input type="text" name="brand" class="form-control" value="<%= @toy.brand %>">
+  </div>
+  <div class="form-group">
+    Manufacturer Website:
+    <input type="text" name="mfg_website" class="form-control" value="<%= @toy.mfg_website %>">
+  </div>
+  <div class="form-group">
+    Country of Origin:
+    <input type="text" name="country_of_origin" class="form-control" value="<%= @toy.country_of_origin %>">
+  </div>
+  <div class="form-group">
+    Store Purchased From:
+    <input type="text" name="store_purchased_from" class="form-control" value="<%= @toy.store_purchased_from %>">
+  </div>
+  <div class="form-group">
+    Cost:
+    <input type="text" name="purchase_price" class="form-control" value="<%= @toy.purchase_price %>">
+  </div>
+    Extended Play Idea:
+		<textarea type="textarea" name="extended_play_idea" class="form-control" rows="3" value="<%= @toy.purchase_price %>"></textarea>
+  </div>
+
+
+
+
+    <input type="submit" value="Update Book" class="btn btn-default">
+  </div>
+</form>
+
+
+		<p><a href="/toys/<%= @toy.id %>/edit">Edit This Toy</a></p>
+		<p><a href="/toys">Back to All Toys</a></p>
+
+	<p></p>
+
+
+	</div>
+</div>

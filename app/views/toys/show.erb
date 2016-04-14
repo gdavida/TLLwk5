@@ -1,0 +1,60 @@
+
+  <!-- validates :name, presence: true
+  validates :brand, presence: true
+  validates :mfg_website, presence: true
+  validates :quantity_wanted, presence: true
+  validates :quantity_have, presence: true
+  validates :upc, presence: true, uniqueness: true
+  validates :mfg_suggested_age_range, presence: true
+  validates :pieces, presence: true
+  validates :extended_play_idea, presence: true
+  validates :store_purchased_from, presence: true
+  validates :purchase_price, presence: true
+  validates :country_of_origin, presence: true -->
+
+  <div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<h2><%= @toy.name %></h2>
+			<div class="row">
+				<a href="edit.erb">
+					<h5>Edit Record</h5>
+				</a>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="row">
+				<a href="/edit.erb">
+					<h5>Add New</h5>
+				</a>
+			</div>
+			<div class="row">
+				<a href="">
+					<h5>Assign to Box</h5>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="row" id="toyViewShow">
+		<h3><%= @toy.name %></h3>
+			
+		<p><span>UPC:</span> <%= @toy.upc %></p>
+		<p><span>Checked Out?</span></p>  <!-- NEED TO DO THIS! -->
+		<p><span>Have/Want:</span> <%= @toy.quantity_have %> / <%= @toy.quantity_wanted %></p>
+
+		<p><span>Brand:</span> <%= @toy.brand %></p>
+		<p><span>Manufacturer Website:</span> <%= @toy.mfg_website %></p>
+		<p><span>Country of Origin:</span> <%= @toy.country_of_origin %></p>
+		<p><span>Store Purchased From:</span> <%= @toy.store_purchased_from %></p>
+		<p><span>Cost:</span> <%= @toy.purchase_price %></p>
+		<p><span>Extended Play Idea:</span> <%= @toy.extended_play_idea %></p>
+
+
+		<p><a href="/toys/<%= @toy.id %>/edit">Edit This Toy</a></p>
+		<p><a href="/toys">Back to All Toys</a></p>
+
+	<p></p>
+
+
+	</div>
+</div>

@@ -42,7 +42,7 @@ end
 # I will make form in the erb file, which will evantually, through "create" post that info to the db
 #
 get "/toys/new/?" do
-  @skill = Toy.new
+  @toy = Toy.new
   erb :"/toys/new"
 end
 
@@ -51,7 +51,7 @@ end
 # In my erb file I format what information about each record I want to show
 #
 get "/toys/:id/?" do
-  @skill = Toy.find_by_id(params['id'])
+  @toy = Toy.find_by_id(params['id'])
   erb :"toys/show"
 end
 
