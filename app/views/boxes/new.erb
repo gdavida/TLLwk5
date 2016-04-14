@@ -1,0 +1,85 @@
+
+  <!-- validates :name, presence: true
+  validates :brand, presence: true
+  validates :mfg_website, presence: true
+  validates :quantity_wanted, presence: true
+  validates :quantity_have, presence: true
+  validates :upc, presence: true, uniqueness: true
+  validates :mfg_suggested_age_range, presence: true
+  validates :pieces, presence: true
+  validates :extended_play_idea, presence: true
+  validates :store_purchased_from, presence: true
+  validates :purchase_price, presence: true
+  validates :country_of_origin, presence: true -->
+
+  <!-- validates :name, presence: true
+  validates :brand, presence: true
+  validates :mfg_website, presence: true
+  validates :quantity_wanted, presence: true
+  validates :quantity_have, presence: true
+  validates :upc, presence: true, uniqueness: true
+  validates :mfg_suggested_age_range, presence: true
+  validates :pieces, presence: true
+  validates :extended_play_idea, presence: true
+  validates :store_purchased_from, presence: true
+  validates :purchase_price, presence: true
+  validates :country_of_origin, presence: true -->
+
+  <div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h2><%= @box.name %></h2>
+      <div class="row">
+        <a href="/boxes/<%= @box.id %>/edit">
+          <h5>Edit Record</h5>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row">
+        <a href="/new.erb">
+          <h5>Add New</h5>
+        </a>
+      </div>
+    </div>
+  </div>
+
+<h2>New box</h2>
+
+<% if @box.errors.any? %>
+  <div>
+    <h2>Errors:</h2>
+    <ul>
+      <% @box.errors.full_messages.each do |e| %>
+        <li><%= e %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<!-- 
+    t.string  "name"
+    t.integer "assigned_age_group_id"
+    t.boolean "label"
+    t.string  "location"
+    t.boolean "cleaned"
+    t.boolean "checked_out" -->
+
+    <form action="/boxes/<%= @box.id %>" method="post">
+      <div class='form-group'>
+        Name:
+        <input type="text" name="name" class="form-control" value="<%= @box.name %>">
+      </div>
+      <div class="form-group">
+        Location:
+        <input type="text" name="location" class="form-control" value="<%= @box.location %>">
+      </div>
+      <div class="form-group">
+        <input type="submit" value="New Box" class="btn btn-default">
+      </div>
+    </form>
+
+
+  </div>
+
+

@@ -12,35 +12,50 @@
   validates :purchase_price, presence: true
   validates :country_of_origin, presence: true -->
 
+  <!-- validates :name, presence: true
+  validates :brand, presence: true
+  validates :mfg_website, presence: true
+  validates :quantity_wanted, presence: true
+  validates :quantity_have, presence: true
+  validates :upc, presence: true, uniqueness: true
+  validates :mfg_suggested_age_range, presence: true
+  validates :pieces, presence: true
+  validates :extended_play_idea, presence: true
+  validates :store_purchased_from, presence: true
+  validates :purchase_price, presence: true
+  validates :country_of_origin, presence: true -->
+
   <div class="container">
-	<div class="row">
-		<div class="col-md-6">
-			<h2><%= @toy.name %></h2>
-			<div class="row">
-				<a href="edit.erb">
-					<h5>Edit Record</h5>
-				</a>
-			</div>
-		</div>
-		<div class="col-md-6">
-			<div class="row">
-				<a href="/new.erb">
-					<h5>Add New</h5>
-				</a>
-			</div>
-			<div class="row">
-				<a href="">
-					<h5>Assign to Box</h5>
-				</a>
-			</div>
-		</div>
-	</div>
-	<div class="row" id="toyViewShow">
+  <div class="row">
+    <div class="col-md-6">
+      <h2><%= @toy.name %></h2>
+      <div class="row">
+        <a href="/toys/<%= @toy.id %>/edit">
+          <h5>Edit Record</h5>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row">
+        <a href="/new.erb">
+          <h5>Add New</h5>
+        </a>
+      </div>
+      <div class="row">
+        <a href="">
+          <h5>Assign to Box</h5>
+        </a>
+      </div>
+    </div>
+  </div>
+
+<h2>New Toy</h2>
 
 <% if @toy.errors.any? %>
   <div>
     <h2>Errors:</h2>
     <ul>
+    
       <% @toy.errors.full_messages.each do |e| %>
         <li><%= e %></li>
       <% end %>
@@ -48,9 +63,7 @@
   </div>
 <% end %>
 
-		<h1><%= @toy.name %></h1>	
-    <form action="/toys/<%= @toy.id %>" method="post">
-      <input type="hidden" name="_method" value="patch">
+<form action="/toys/<%= @toy.id %>" method="post">
       <div class='form-group'>
         Name:
         <input type="text" name="name" class="form-control" value="<%= @toy.name %>">
@@ -97,12 +110,15 @@
       </div>
       <div class="form-group">
         Extended Play Idea:
-    		<textarea type="textarea" name="extended_play_idea" class="form-control" rows="3" value="<%= @toy.purchase_price %>"></textarea>
+        <textarea type="textarea" name="extended_play_idea" class="form-control" rows="3" value="<%= @toy.purchase_price %>"></textarea>
       </div>
       <div class="form-group">
         <input type="submit" value="Update Toy" class="btn btn-default">
       </div>
     </form>
-    <p><a href="/toys">Back to All Toys</a></p>
+
+
   </div>
-	</div>
+</div>
+
+

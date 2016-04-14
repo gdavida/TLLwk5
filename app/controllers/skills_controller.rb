@@ -87,7 +87,7 @@ end
 patch "/skills/:id/?" do
 	@skill = Skill.find_by_id(params['id'])
 
-	if @skills.update_attributes(name: params['name'], description: params['description'])
+	if @skill.update_attributes(name: params['name'], description: params['description'])
 		redirect to("/skills/#{@skill.id}")
 	else
 		erb :"skills/edit"

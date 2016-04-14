@@ -76,7 +76,7 @@ end
 post "/boxes/?" do
 	@box = Box.new(params)
 
-	if @Box.save
+	if @box.save
 		redirect to ("/boxes")
 	else
 		erb :"boxes/new"
@@ -95,7 +95,7 @@ end
 patch "/boxes/:id/?" do
 	@box = Box.find_by_id(params['id'])
 
-	if @boxes.update_attributes(name: params['name'], description: params['description'])
+	if @box.update_attributes(name: params['name'], location: params['location'])
 		redirect to("/boxes/#{@box.id}")
 	else
 		erb :"boxes/edit"

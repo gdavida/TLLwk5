@@ -1,0 +1,41 @@
+
+  <!-- validates :name, presence: true
+  validates :brand, presence: true
+  validates :mfg_website, presence: true
+  validates :quantity_wanted, presence: true
+  validates :quantity_have, presence: true
+  validates :upc, presence: true, uniqueness: true
+  validates :mfg_suggested_age_range, presence: true
+  validates :pieces, presence: true
+  validates :extended_play_idea, presence: true
+  validates :store_purchased_from, presence: true
+  validates :purchase_price, presence: true
+  validates :country_of_origin, presence: true -->
+
+  <div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<h2><%= @box.name %></h2>
+			<div class="row">
+				<a href="/boxes/<%= @box.id %>/edit">
+					<h5>Edit Record</h5>
+				</a>
+			</div>
+		</div>
+		<div class="col-md-6">
+		</div>
+	</div>
+	<div class="row" id="boxViewShow">
+		<h3><%= @box.name %></h3>
+			
+		<p><span>Name:</span> <%= @box.name %></p>
+		<p><span>UPC:</span> <%= @box.location %></p>
+
+		<p><a href="/boxes/<%= @box.id %>/edit">Edit This Box</a></p>
+		<p><a href="/boxes">Back to All boxes</a></p>
+
+	<p></p>
+
+
+	</div>
+</div>

@@ -87,7 +87,7 @@ end
 patch "/assigned_age_groups/:id/?" do
 	@assigned_age_group = AssignedAgeGroup.find_by_id(params['id'])
 
-	if @assigned_age_groups.update_attributes(age: params['age'])
+	if @assigned_age_group.update_attributes(age: params['age'])
 		redirect to("/assigned_age_groups/#{@assigned_age_group.id}")
 	else
 		erb :"assigned_age_groups/edit"
