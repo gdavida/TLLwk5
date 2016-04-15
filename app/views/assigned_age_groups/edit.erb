@@ -1,0 +1,60 @@
+
+  <!-- validates :name, presence: true
+  validates :brand, presence: true
+  validates :mfg_website, presence: true
+  validates :quantity_wanted, presence: true
+  validates :quantity_have, presence: true
+  validates :upc, presence: true, uniqueness: true
+  validates :mfg_suggested_age_range, presence: true
+  validates :pieces, presence: true
+  validates :extended_play_idea, presence: true
+  validates :store_purchased_from, presence: true
+  validates :purchase_price, presence: true
+  validates :country_of_origin, presence: true -->
+
+  <div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<h2><%= @assigned_age_group.age %></h2>
+			<div class="row">
+				<a href="edit.erb">
+					<h5>Edit Record</h5>
+				</a>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="row">
+				<a href="/new.erb">
+					<h5>Add New</h5>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="row" id="assigned_age_groupsViewShow">
+
+<% if @assigned_age_group.errors.any? %>
+  <div>
+    <h2>Errors:</h2>
+    <ul>
+      <% @assigned_age_group.errors.full_messages.each do |e| %>
+        <li><%= e %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+		<h1><%= @assigned_age_group.age %></h1>	
+    <form action="/assigned_age_groups/<%= @assigned_age_group.id %>" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <div class='form-group'>
+        Age:
+        <input type="text" name="age" class="form-control" value="<%= @assigned_age_group.age %>">
+      </div>
+      
+      <div class="form-group">
+        <input type="submit" value="Update assigned_age_groups" class="btn btn-default">
+      </div>
+    </form>
+    <p><a href="/assigned_age_groups">Back to All assigned_age_groups</a></p>
+  </div>
+	</div>

@@ -1,0 +1,21 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<h2>Assigned Age Groups Inventory</h2>
+		</div>
+		<div class="col-md-6">
+			<div class="row">
+				<a href="/assigned_age_groups/new">
+					<h5>Add New Assigned Age Group</h5>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<ol>
+			<% @assigned_age_groups.each do |t| %>
+	    	<li><a href="/assigned_age_groups/<%= t.id %>" ><%= t.age %></a></li>
+	  	<% end %>
+		</ol>
+	</div>
+</div>
