@@ -1,0 +1,63 @@
+
+  <!-- validates :name, presence: true
+  validates :brand, presence: true
+  validates :mfg_website, presence: true
+  validates :quantity_wanted, presence: true
+  validates :quantity_have, presence: true
+  validates :upc, presence: true, uniqueness: true
+  validates :mfg_suggested_age_range, presence: true
+  validates :pieces, presence: true
+  validates :extended_play_idea, presence: true
+  validates :store_purchased_from, presence: true
+  validates :purchase_price, presence: true
+  validates :country_of_origin, presence: true -->
+
+  <div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<h2><%= @skill.name %></h2>
+			<div class="row">
+				<a href="edit.erb">
+					<h5>Edit Record</h5>
+				</a>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="row">
+				<a href="/new.erb">
+					<h5>Add New</h5>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="row" id="skillsViewShow">
+
+<% if @skill.errors.any? %>
+  <div>
+    <h2>Errors:</h2>
+    <ul>
+      <% @skill.errors.full_messages.each do |e| %>
+        <li><%= e %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+		<h1><%= @skill.name %></h1>	
+    <form action="/skills/<%= @skill.id %>" method="post">
+      <div class='form-group'>
+        Name:
+        <input type="text" name="name" class="form-control" value="<%= @skill.name %>">
+      </div>
+      <div class='form-group'>
+        Description:
+        <input type="textarea" rows="3" name="description" class="form-control" value="<%= @skill.description %>">
+      </div>
+      <div class="form-group">
+        <input type="submit" value="New Skill Groups" class="btn btn-default">
+      </div>
+    </form>
+
+    <p><a href="/skills">Back to All skills</a></p>
+  </div>
+	</div>

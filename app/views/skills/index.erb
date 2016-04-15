@@ -1,0 +1,21 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<h2>Skills Inventory</h2>
+		</div>
+		<div class="col-md-6">
+			<div class="row">
+				<a href="/skills/new">
+					<h5>Add New Skill</h5>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<ol>
+			<% @skills.each do |t| %>
+	    	<li><a href="/skills/<%= t.id %>" ><%= t.name %></a></li>
+	  	<% end %>
+		</ol>
+	</div>
+</div>
