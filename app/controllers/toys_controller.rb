@@ -43,6 +43,7 @@ end
 #
 get "/toys/new/?" do
   @toy = Toy.new
+  @skills = @toy.skills
   erb :"/toys/new"
 end
 
@@ -52,9 +53,18 @@ end
 #
 get "/toys/:id/?" do
   @toy = Toy.find_by_id(params['id'])
+  @skills = @toy.skills
   erb :"toys/show"
 end
 
+#-- SKILLS ---------
+#
+#
+get "/toys/:id/skills/?" do
+  @toy = Toy.find_by_id(params['id'])
+  @skills = Skill.all
+  erb :"toys/skills"
+end
 
 #-- EDIT ---------
 # When I want to edit the details of a specific record, as referenced by its primary ket
