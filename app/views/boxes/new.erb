@@ -74,6 +74,20 @@
         Location:
         <input type="text" name="location" class="form-control" value="<%= @box.location %>">
       </div>
+      
+      <!-- CHECKBOXES -->
+      <div class="form-group">
+      Toy:<br>
+        <% @toys.each do |t| %>
+          <input type="checkbox" name="toy" value="<%= t.id %>"> <%= t.name %><br>
+        <% end %>
+      </div>
+
+
+
+
+
+
       <div class="form-group">
         <input type="submit" value="New Box" class="btn btn-default">
       </div>

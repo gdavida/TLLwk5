@@ -80,13 +80,26 @@
         Want:
         <input type="text" name="quantity_wanted" class="form-control" value="<%= @toy.quantity_wanted %>">
       </div>
+
+
       <div class="form-group">
-        Manufacturer Suggested Age Range:
-        <input type="text" name="mfg_suggested_age_range" class="form-control" value="<%= @toy.mfg_suggested_age_range %>">
+        Select a TLL age group:
+
+        <select id="assigned_age_group" class="form-control" name="assigned_age_group_id">
+          <% @assigned_age_groups.each do |a| %>
+            <option value="<%= a.id %>"><%= a.age %></option>
+          <% end %>
+        </select>
       </div>
+
+
       <div class="form-group">
         Brand:
         <input type="text" name="brand" class="form-control" value="<%= @toy.brand %>">
+      </div>
+      <div class="form-group">
+        Manufacturer Suggested Age Range:
+        <input type="text" name="mfg_suggested_age_range" class="form-control" value="<%= @toy.mfg_suggested_age_range %>">
       </div>
       <div class="form-group">
         Pieces:
@@ -108,6 +121,30 @@
         Cost:
         <input type="text" name="purchase_price" class="form-control" value="<%= @toy.purchase_price %>">
       </div>
+
+
+      
+      <div class="form-group">
+        Assign to a Box:
+        <select id="box" class="form-control" name="box_id">
+          <% @boxes.each do |b| %>
+            <option value="<%= b.id %>"><%= b.name %></option>
+          <% end %>
+        </select>
+      </div>
+      
+      <div class="form-group">
+      Skills:<br>
+        <% @skills.each do |s| %>
+          <input type="checkbox" name="skill" value="<%= s.id %>"> <%= s.name %><br>
+        <% end %>
+      </div>
+
+
+
+
+
+
       <div class="form-group">
         Extended Play Idea:
         <textarea type="textarea" name="extended_play_idea" class="form-control" rows="3" value="<%= @toy.purchase_price %>"></textarea>

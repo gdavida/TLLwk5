@@ -28,6 +28,8 @@
 #
 get "/boxes/?" do
 	@boxes = Box.all
+	@toys = Toy.all
+	@toy = Toy.find_by_id(params['id'])
 	erb :"boxes/index"
 end
 
@@ -37,6 +39,8 @@ end
 #
 get "/boxes/new/?" do
 	@box = Box.new
+	@toys = Toy.all
+	@toy = Toy.find_by_id(params['id'])
 	erb :"/boxes/new"
 end
 
@@ -46,6 +50,8 @@ end
 #
 get "/boxes/:id/?" do
 	@box = Box.find_by_id(params['id'])
+	@toys = Toy.all
+	@toy = Toy.find_by_id(params['id'])
 	erb :"boxes/show"
 end
 
@@ -57,6 +63,8 @@ end
 #
 get "/boxes/:id/edit/?" do
 	@box = Box.find_by_id(params['id'])
+	@toys = Toy.all
+	@toy = Toy.find_by_id(params['id'])
 	erb :"boxes/edit"
 end
 

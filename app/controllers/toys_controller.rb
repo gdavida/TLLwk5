@@ -43,7 +43,12 @@ end
 #
 get "/toys/new/?" do
   @toy = Toy.new
-  @skills = @toy.skills
+  @assigned_age_groups = AssignedAgeGroup.all
+  @assigned_age_group = AssignedAgeGroup.find_by_id(params['id'])
+  @boxes = Box.all
+  @box = Box.find_by_id(params['id'])
+  @skills = Skill.all
+  @skill = Skill.find_by_id(params['id'])
   erb :"/toys/new"
 end
 
@@ -53,18 +58,23 @@ end
 #
 get "/toys/:id/?" do
   @toy = Toy.find_by_id(params['id'])
-  @skills = @toy.skills
+  @assigned_age_groups = AssignedAgeGroup.all
+  @assigned_age_group = AssignedAgeGroup.find_by_id(params['id'])
+  @boxes = Box.all
+  @box = Box.find_by_id(params['id'])
+  @skills = Skill.all
+  @skill = Skill.find_by_id(params['id'])
   erb :"toys/show"
 end
 
-#-- SKILLS ---------
-#
-#
-get "/toys/:id/skills/?" do
-  @toy = Toy.find_by_id(params['id'])
-  @skills = Skill.all
-  erb :"toys/skills"
-end
+# #-- SKILLS ---------
+# #
+# #
+# get "/toys/:id/skills/?" do
+#   @toy = Toy.find_by_id(params['id'])
+#   @skills = Skill.all
+#   erb :"toys/skills"
+# end
 
 #-- EDIT ---------
 # When I want to edit the details of a specific record, as referenced by its primary ket
@@ -73,6 +83,12 @@ end
 #
 get "/toys/:id/edit/?" do
   @toy = Toy.find_by_id(params['id'])
+  @assigned_age_groups = AssignedAgeGroup.all
+  @assigned_age_group = AssignedAgeGroup.find_by_id(params['id'])
+  @boxes = Box.all
+  @box = Box.find_by_id(params['id'])
+  @skills = Skill.all
+  @skill = Skill.find_by_id(params['id'])
   erb :"toys/edit"
 end
 

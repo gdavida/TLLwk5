@@ -44,20 +44,35 @@
 <% end %>
 
 		<h1><%= @box.name %></h1>	
+    
     <form action="/boxes/<%= @box.id %>" method="post">
-      <input type="hidden" name="_method" value="patch">
       <div class='form-group'>
         Name:
         <input type="text" name="name" class="form-control" value="<%= @box.name %>">
       </div>
-      <div class='form-group'>
+      <div class="form-group">
         Location:
         <input type="text" name="location" class="form-control" value="<%= @box.location %>">
       </div>
+      
+      <!-- CHECKBOXES -->
       <div class="form-group">
-        <input type="submit" value="Update box" class="btn btn-default">
+      Toys:<br>
+        <% @toys.each do |t| %>
+          <input type="checkbox" name="toy" value="<%= t.id %>"> <%= t.name %><br>
+        <% end %>
+      </div>
+
+
+
+
+
+
+      <div class="form-group">
+        <input type="submit" value="Save Box" class="btn btn-default">
       </div>
     </form>
+
     <p><a href="/boxes">Back to All boxes</a></p>
   </div>
 	</div>
