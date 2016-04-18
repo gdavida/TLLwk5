@@ -106,7 +106,18 @@ end
 # Else I will stay on the new page, which in the erb file I will make sure it shows which errors showed up, so which validations must be met in order for it to save
 #
 post "/toys/?" do
-  @toy = Toy.new(params)
+  @toy = Toy.new(name: params['name'],
+                            brand: params['brand'],
+                            mfg_website: params['mfg_website'],
+                            quantity_have: params['quantity_have'],
+                            quantity_wanted: params['quantity_wanted'],
+                            upc: params['upc'],
+                            mfg_suggested_age_range: params['mfg_suggested_age_range'],
+                            pieces: params['pieces'],
+                            extended_play_idea: params['extended_play_idea'],
+                            store_purchased_from: params['store_purchased_from'],
+                            purchase_price: params['purchase_price'],
+                            country_of_origin: params['country_of_origin'])
   if @toy.save
     redirect to ("/toys")
   else
@@ -125,15 +136,6 @@ end
 
 patch "/toys/:id/?" do
   @toy = Toy.find_by_id(params['id'])
-
-
-  @assigned_age_groups = AssignedAgeGroup.where(id:params['assigned_age_group_id'])
-  @boxes = Box.where(id:params['boxes_id'])
-  @skills = Skill.where(id:params['skills_id'])
-
-  toy.assigned_age_groups = @assigned_age_groups
-  toy.boxes = @boxes
-  toy.skills = @skills
 
   if @toy.update_attributes(name: params['name'],
                             brand: params['brand'],
