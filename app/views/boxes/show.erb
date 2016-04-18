@@ -30,11 +30,23 @@
 			
 		<p><span>Name:</span> <%= @box.name %></p>
 		<p><span>UPC:</span> <%= @box.location %></p>
-
+		<ul>
+		  <% @box.toys.each do |t| %>
+		    <li><%= t.name %></li>
+		  <% end %>
+		</ul>
+<p><a href="/boxes/<%= @box.id %>/toys">Assign Toys</a></p>
 		<p><a href="/boxes/<%= @box.id %>/edit">Edit This Box</a></p>
 		<p><a href="/boxes">Back to All boxes</a></p>
 
-	<p></p>
+
+  <form action="/boxes/<%=@box.id%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input class="btn btn-primary" type="submit" value="Delete Box">
+  </form>
+</div>
+
+
 
 
 	</div>

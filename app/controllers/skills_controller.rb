@@ -29,6 +29,8 @@ end
 #
 get "/skills/new/?" do
 	@skill = Skill.new
+  @toys = Toy.all
+  @toy = Toy.find_by_id(params['id'])
 	erb :"/skills/new"
 end
 
@@ -38,6 +40,8 @@ end
 #
 get "/skills/:id/?" do
 	@skill = Skill.find_by_id(params['id'])
+  @toys = Toy.all
+  @toy = Toy.find_by_id(params['id'])
 	erb :"skills/show"
 end
 
@@ -49,6 +53,8 @@ end
 #
 get "/skills/:id/edit/?" do
 	@skill = Skill.find_by_id(params['id'])
+  @toys = Toy.all
+  @toy = Toy.find_by_id(params['id'])
 	erb :"skills/edit"
 end
 
@@ -66,7 +72,7 @@ end
 # Else I will stay on the new page, which in the erb file I will make sure it shows which errors showed up, so which validations must be met in order for it to save
 #
 post "/skills/?" do
-	@skill = Skill.new(params)
+	@skill = Skill.new(name: params['name'], description: params['description'])
 
 	if @skill.save
 		redirect to ("/skills")

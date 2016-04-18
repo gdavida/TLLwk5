@@ -29,6 +29,10 @@ end
 #
 get "/assigned_age_groups/new/?" do
 	@assigned_age_group = AssignedAgeGroup.new
+	@boxes = Box.all
+  @box = Box.find_by_id(params['id'])
+  @skills = Skill.all
+  @skill = Skill.find_by_id(params['id'])
 	erb :"/assigned_age_groups/new"
 end
 
@@ -38,6 +42,8 @@ end
 #
 get "/assigned_age_groups/:id/?" do
 	@assigned_age_group = AssignedAgeGroup.find_by_id(params['id'])
+	@boxes = Box.all
+  @box = Box.find_by_id(params['id'])
 	erb :"assigned_age_groups/show"
 end
 
@@ -49,6 +55,8 @@ end
 #
 get "/assigned_age_groups/:id/edit/?" do
 	@assigned_age_group = AssignedAgeGroup.find_by_id(params['id'])
+	@boxes = Box.all
+  @box = Box.find_by_id(params['id'])
 	erb :"assigned_age_groups/edit"
 end
 
@@ -66,7 +74,7 @@ end
 # Else I will stay on the new page, which in the erb file I will make sure it shows which errors showed up, so which validations must be met in order for it to save
 #
 post "/assigned_age_groups/?" do
-	@assigned_age_group = AssignedAgeGroup.new(params)
+	@assigned_age_group = AssignedAgeGroup.new(age: params['age'])
 
 	if @assigned_age_group.save
 		redirect to ("/assigned_age_groups")

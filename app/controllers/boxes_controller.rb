@@ -27,6 +27,7 @@
 # I will code exactly what that looks like, what attributes to include and the format, etc, in the erb file
 #
 get "/boxes/?" do
+	@box = Box.find_by_id(params['id'])
 	@boxes = Box.all
 	@toys = Toy.all
 	@toy = Toy.find_by_id(params['id'])
@@ -49,6 +50,7 @@ end
 # In my erb file I format what information about each record I want to show
 #
 get "/boxes/:id/?" do
+	@boxes = Box.all
 	@box = Box.find_by_id(params['id'])
 	@toys = Toy.all
 	@toy = Toy.find_by_id(params['id'])
@@ -63,13 +65,31 @@ end
 #
 get "/boxes/:id/edit/?" do
 	@box = Box.find_by_id(params['id'])
+	@boxes = Box.all
 	@toys = Toy.all
 	@toy = Toy.find_by_id(params['id'])
 	erb :"boxes/edit"
 end
 
+#-- EDIT TOYS---------
+# When I want to edit the details of a specific record, as referenced by its primary ket
+# In my erb file I will have an editable form, which will eventually, through "update" post that info to the db
+# (probably will look exactly like NEW only with info 1already in the form ready to be used or edited as needed)
+#
+get "/boxes/:id/toys/?" do
+	@box = Box.find_by_id(params['id'])
+	@toys = Toy.all
+	erb :"boxes/toys"
+end
+
 # ________________________________________
 
+# + name (string)
+# + assigned_age_group_id (int)
+# + label (boolean)
+# + location (string)
+# + cleaned (boolean)
+# + checked_out (boolean)
 
 
 
@@ -83,6 +103,8 @@ end
 #
 post "/boxes/?" do
 	@box = Box.new(params)
+	@toys = Toy.all
+	@toy = Toy.find_by_id(params['id'])
 
 	if @box.save
 		redirect to ("/boxes")
@@ -102,12 +124,29 @@ end
 
 patch "/boxes/:id/?" do
 	@box = Box.find_by_id(params['id'])
+  @toys = Toy.where(id: params['toy_id'])
 
+  @box.toys = @toys
 	if @box.update_attributes(name: params['name'], location: params['location'])
 		redirect to("/boxes/#{@box.id}")
 	else
 		erb :"boxes/edit"
 	end
+end
+
+
+#-- UPDATE TOYS---------
+# 
+#
+#
+patch "/boxes/:box_id/toys" do
+  
+  @box = Box.find_by_id(params['box_id'])
+  @toys = Toy.where(id: params['toy_id'])
+
+  @box.toys = @toys
+  
+  redirect to("/boxes/#{@box.id}")
 end
 # ________________________________________
 
@@ -117,9 +156,12 @@ end
 #
 #  find record by id and destroy it then redirect to the INDEX list of all items, which reflects the deletion
 #
-	delete "/boxes/:id/?" do
-		@box = Box.find_by_id(params['id'])
-		@box.destroy
-		redirect to("/boxes")
-	end
+  # Delete
+  delete "/boxes/:id" do
+   @box = Box.find_by_id(params['id'])
+   @box.destroy
+ 
+   redirect to('/boxes')
+
+  end
 # ________________________________________

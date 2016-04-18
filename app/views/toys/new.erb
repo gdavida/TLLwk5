@@ -126,7 +126,7 @@
       
       <div class="form-group">
         Assign to a Box:
-        <select id="box" class="form-control" name="box_id">
+        <select id="box" class="form-control" name="boxes[]">
           <% @boxes.each do |b| %>
             <option value="<%= b.id %>"><%= b.name %></option>
           <% end %>
@@ -136,7 +136,7 @@
       <div class="form-group">
       Skills:<br>
         <% @skills.each do |s| %>
-          <input type="checkbox" name="skill" value="<%= s.id %>"> <%= s.name %><br>
+          <input type="checkbox" name="skills[]" value="<%= s.id %>"> <%= s.name %><br>
         <% end %>
       </div>
 

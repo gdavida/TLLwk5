@@ -75,14 +75,12 @@
         <input type="text" name="location" class="form-control" value="<%= @box.location %>">
       </div>
       
-      <!-- CHECKBOXES -->
-      <div class="form-group">
-      Toys:<br>
-        <% @toys.each do |t| %>
-          <input type="checkbox" name="toy" value="<%= t.id %>"> <%= t.name %><br>
-        <% end %>
-      </div>
-
+    <ul>
+      <% @box.toys.each do |t| %>
+        <li><%= t.name %></li>
+      <% end %>
+    </ul>
+<p><a href="/boxes/<%= @box.id %>/toys">Assign Toys</a></p>
 
 
 
