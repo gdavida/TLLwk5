@@ -40,14 +40,16 @@
 		<p><span>UPC:</span> <%= @toy.upc %></p>
 		<p><span>Checked Out?</span></p>  <!-- NEED TO DO THIS! -->
 		<p><span>Have/Want:</span> <%= @toy.quantity_have %> / <%= @toy.quantity_wanted %></p>
-		<p><span>Assigned Age Group</span></p>
-
+		<p><span>Assigned Age Group: <br> <%= @assigned_age_group.age %></span></p>
 
 		<p><span>Brand:</span> <%= @toy.brand %></p>
 		<p><span>Manufacturer Website:</span> <%= @toy.mfg_website %></p>
 		<p><span>Country of Origin:</span> <%= @toy.country_of_origin %></p>
 		<p><span>Store Purchased From:</span> <%= @toy.store_purchased_from %></p>
 		<p><span>Cost:</span> <%= @toy.purchase_price %></p>
+
+		<p><span>Box: <br> <%= @box.name %></span></p>
+		<p><span>Skills: <br> <%= @skill.name %></span></p>
 		<p><span>Extended Play Idea:</span> <%= @toy.extended_play_idea %></p>
 
 

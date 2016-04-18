@@ -1,17 +1,4 @@
 
-  <!-- validates :name, presence: true
-  validates :brand, presence: true
-  validates :mfg_website, presence: true
-  validates :quantity_wanted, presence: true
-  validates :quantity_have, presence: true
-  validates :upc, presence: true, uniqueness: true
-  validates :mfg_suggested_age_range, presence: true
-  validates :pieces, presence: true
-  validates :extended_play_idea, presence: true
-  validates :store_purchased_from, presence: true
-  validates :purchase_price, presence: true
-  validates :country_of_origin, presence: true -->
-
   <div class="container">
 	<div class="row">
 		<div class="col-md-6">
@@ -30,6 +17,8 @@
 			
 		<p><span>Skill:</span> <%= @skill.name %></p>
 		<p><span>Description:</span> <%= @skill.description %></p>
+
+		<p><span>Toys <br> <% @toy.name %></span></p>
 
 		<p><a href="/skills">Back to All Skills</a></p>
 

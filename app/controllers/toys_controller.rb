@@ -107,7 +107,6 @@ end
 #
 post "/toys/?" do
   @toy = Toy.new(params)
-
   if @toy.save
     redirect to ("/toys")
   else
@@ -126,6 +125,15 @@ end
 
 patch "/toys/:id/?" do
   @toy = Toy.find_by_id(params['id'])
+
+
+  @assigned_age_groups = AssignedAgeGroup.where(id:params['assigned_age_group_id'])
+  @boxes = Box.where(id:params['boxes_id'])
+  @skills = Skill.where(id:params['skills_id'])
+
+  toy.assigned_age_groups = @assigned_age_groups
+  toy.boxes = @boxes
+  toy.skills = @skills
 
   if @toy.update_attributes(name: params['name'],
                             brand: params['brand'],

@@ -36,4 +36,7 @@ class Toy < ActiveRecord::Base
   has_and_belongs_to_many :boxes
   has_and_belongs_to_many :skills
   has_and_belongs_to_many :assigned_age_groups
+
+
+  
 end
